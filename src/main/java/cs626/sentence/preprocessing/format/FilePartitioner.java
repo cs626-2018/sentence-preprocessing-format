@@ -1,22 +1,13 @@
 package cs626.sentence.preprocessing.format;
 
-import org.apache.hadoop.conf.Configurable;
-import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.Partitioner;
+import org.apache.hadoop.mapred.JobConf;
+import org.apache.hadoop.mapred.Partitioner;
 
-public class FilePartitioner extends Partitioner<Text, Text> implements Configurable {
-
-	private Configuration conf = null;
-
+public class FilePartitioner implements Partitioner<Text, Text> {
+	
 	@Override
-	public void setConf(Configuration conf) {
-		this.conf = conf;
-	}
-
-	@Override
-	public Configuration getConf() {
-		return conf;
+	public void configure(JobConf job) {	
 	}
 	
 	@Override
